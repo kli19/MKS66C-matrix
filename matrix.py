@@ -23,13 +23,22 @@ def print_matrix( matrix ):
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    pass
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            if i == j:
+                matrix[i][j] = 1
+            else:
+                matrix[i][j] = 0
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
-
+    matrix = new_matrix(len(m2), len(m1[0]))
+    print_matrix(matrix)
+    if len(m1) != len(m2[0]):
+        print("matrix_mult error: num cols in m1 not equal to num rows in m2")
+    else:
+        #multiply
 
 def new_matrix(rows = 4, cols = 4):
     m = []
@@ -39,5 +48,8 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-matrix = [[0,1,2,1],[3,4,5,1],[6,7,8,1]]
+matrix = [[0,1,2,1],[3,4,5,1],[6,7,8,1],[9,1,1,1]]
 print_matrix(matrix)
+ident(matrix)
+print_matrix(matrix)
+
