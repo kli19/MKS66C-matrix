@@ -13,7 +13,7 @@ import math
 #the template in the top comment
 def print_matrix( matrix ):
     string = ""
-    for i in range(4):
+    for i in range(len(matrix[0])):
         for j in range(len(matrix)):
             string += str(matrix[j][i])
             string += " "
@@ -33,13 +33,16 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    matrix = new_matrix(len(m2), len(m1[0]))
-    print_matrix(matrix)
     if len(m1) != len(m2[0]):
         print("matrix_mult error: num cols in m1 not equal to num rows in m2")
     else:
-        #multiply
-
+        m = new_matrix(len(m1[0]),len(m2))
+        print_matrix(m)
+        for i in range(len(m)):
+            for j in range(len(m[0])):
+                num = 0                
+                m[i][j] = num
+                        
 def new_matrix(rows = 4, cols = 4):
     m = []
     for c in range( cols ):
@@ -48,8 +51,9 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-matrix = [[0,1,2,1],[3,4,5,1],[6,7,8,1],[9,1,1,1]]
-print_matrix(matrix)
-ident(matrix)
-print_matrix(matrix)
-
+m1 = [[1,4],[2,5],[3,6]]
+m2 = new_matrix(3,3)
+ident(m2)
+print_matrix(m1)
+print_matrix(m2)
+matrix_mult(m1,m2)
