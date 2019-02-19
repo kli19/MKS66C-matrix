@@ -2,6 +2,8 @@ from display import *
 from draw import *
 from matrix import *
 
+import random
+
 screen = new_screen()
 color = [ 0, 255, 0 ]
 
@@ -31,6 +33,23 @@ print("Testing matrix mult. m1 * m2 =")
 matrix_mult(m1,m2)
 print_matrix(m2)
 
+drawing = new_matrix()
 
-#draw_lines( m2, screen, color )
+centerX = XRES/2
+centerY = YRES/2
+
+x = 0
+y = 0
+color = [random.randint(0,256), random.randint(0,256), random.randint(0,256)]
+
+while x <= XRES and y <= YRES:
+    add_edge(drawing, centerX+x, centerY+y, 0, centerX+y, centerY-x, 0)
+    add_edge(drawing, centerX+y, centerY-x, 0, centerX-x, centerY-y, 0)
+    add_edge(drawing, centerX-x, centerY-y, 0, centerX-y, centerY+x, 0)
+    add_edge(drawing, centerX-y, centerY+x, 0, centerX+x, centerY+y, 0)
+    x+=random.randint(-50,50)
+    y+=random.randint(-50,50)
+
+draw_lines( drawing, screen, color )
 display(screen)
+
