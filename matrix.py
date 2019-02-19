@@ -58,7 +58,7 @@ def matrix_mult( m1, m2 ):
             for n in range(len(row)):
                 dot += row[n]*col[n]
             m2[j][i] = dot
-    print_matrix(m2)
+    #print_matrix(m2)
     
                         
 def new_matrix(rows = 4, cols = 4):
