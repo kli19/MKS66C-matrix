@@ -13,7 +13,7 @@ import math
 #the template in the top comment
 def print_matrix( matrix ):
     string = ""
-    for i in range(len(matrix[0])):
+    for i in range(len(matrix[0])):       
         for j in range(len(matrix)):
             string += str(matrix[j][i])
             string += " "
@@ -69,9 +69,10 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-m1 = [[5,1,1,1],[2,2,2,2],[3,3,3,3],[4,4,4,5]]
-m2 = [[4,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,4]]
 
-print_matrix(m1)
-print_matrix(m2)
-matrix_mult(m1,m2)
+#m1 = [[5,1,1,1],[2,2,2,2],[3,3,3,3],[4,4,4,5]]
+#m2 = [[4,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,4]]
+
+#print_matrix(m1)
+#print_matrix(m2)
+#matrix_mult(m1,m2)

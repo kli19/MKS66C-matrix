@@ -11,10 +11,16 @@ def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
     add_point(matrix, x1, y1, z1)
 
 def add_point( matrix, x, y, z=0 ):
-    matrix.append(point = [x,y,z,1])
-    
-
-
+    n = 0
+    for i in range(len(matrix)):
+        if matrix[i][3] == 1:
+            n+=1
+    if n == len(matrix):
+        print("appending")
+        matrix.append([x,y,z,1])
+    else:
+        print("replacing")
+        matrix[n] = [x,y,z,1]
 
 
 def draw_line( x0, y0, x1, y1, screen, color ):
