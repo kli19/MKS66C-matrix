@@ -33,15 +33,33 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    if len(m1) != len(m2[0]):
-        print("matrix_mult error: num cols in m1 not equal to num rows in m2")
-    else:
-        m = new_matrix(len(m1[0]),len(m2))
-        print_matrix(m)
-        for i in range(len(m)):
-            for j in range(len(m[0])):
-                num = 0                
-                m[i][j] = num
+    m1_rows = []
+    m2_cols = []
+    
+    #make a list of the rows in m1
+    for i in range(len(m1[0])):
+        row = []
+        for j in range(len(m1)):
+            row.append(m1[j][i])
+        m1_rows.append(row)
+    #print_matrix(m1_rows)
+
+    #make a copy of m2
+    for i in range(len(m2)):
+        col = m2[i][:]
+        m2_cols.append(col)
+    #print_matrix(m2_cols)
+
+    for i in range(len(m1_rows)):
+        for j in range(len(m2_cols)):
+            dot = 0
+            row = m1_rows[i]
+            col = m2_cols[j]
+            for n in range(len(row)):
+                dot += row[n]*col[n]
+            m2[j][i] = dot
+    print_matrix(m2)
+    
                         
 def new_matrix(rows = 4, cols = 4):
     m = []
@@ -51,9 +69,9 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-m1 = [[1,4],[2,5],[3,6]]
-m2 = new_matrix(3,3)
-ident(m2)
+m1 = [[5,1,1,1],[2,2,2,2],[3,3,3,3],[4,4,4,5]]
+m2 = [[4,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,4]]
+
 print_matrix(m1)
 print_matrix(m2)
 matrix_mult(m1,m2)
