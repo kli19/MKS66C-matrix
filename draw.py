@@ -15,7 +15,7 @@ def add_point( matrix, x, y, z=0 ):
     for i in range(len(matrix)):
         if matrix[i][3] == 1:
             n+=1
-    if n == len(matrix):)
+    if n == len(matrix):
         matrix.append([x,y,z,1])
     else:
         matrix[n] = [x,y,z,1]
